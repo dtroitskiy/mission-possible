@@ -1,0 +1,76 @@
+
+doors.png
+size: 128,128
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Layer 1
+  rotate: false
+  xy: 2, 74
+  size: 16, 48
+  orig: 16, 48
+  offset: 0, 0
+  index: -1
+Layer 1_v
+  rotate: true
+  xy: 52, 38
+  size: 48, 16
+  orig: 48, 16
+  offset: 0, 0
+  index: -1
+Layer 3
+  rotate: true
+  xy: 2, 56
+  size: 16, 48
+  orig: 16, 48
+  offset: 0, 0
+  index: -1
+Layer 3 copy
+  rotate: true
+  xy: 20, 106
+  size: 16, 48
+  orig: 16, 48
+  offset: 0, 0
+  index: -1
+Layer 3 copy 2
+  rotate: true
+  xy: 20, 88
+  size: 16, 48
+  orig: 16, 48
+  offset: 0, 0
+  index: -1
+door_green_h
+  rotate: true
+  xy: 2, 6
+  size: 48, 16
+  orig: 48, 16
+  offset: 0, 0
+  index: -1
+door_green_h copy
+  rotate: true
+  xy: 20, 6
+  size: 48, 16
+  orig: 48, 16
+  offset: 0, 0
+  index: -1
+door_green_h copy 2
+  rotate: false
+  xy: 38, 20
+  size: 48, 16
+  orig: 48, 16
+  offset: 0, 0
+  index: -1
+door_green_h copy 3
+  rotate: false
+  xy: 38, 2
+  size: 48, 16
+  orig: 48, 16
+  offset: 0, 0
+  index: -1
+door_green_v
+  rotate: false
+  xy: 70, 74
+  size: 16, 48
+  orig: 16, 48
+  offset: 0, 0
+  index: -1

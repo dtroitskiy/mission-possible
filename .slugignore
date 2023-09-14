@@ -1,0 +1,9 @@
+.vscode
+*.code-workspace
+.editorconfig
+.gitignore
+node_modules
+Builds
+README.md
+LICENSE.md
+*.bat

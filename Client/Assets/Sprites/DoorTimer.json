@@ -1,0 +1,39 @@
+{"frames": {
+
+"1.png":
+{
+	"frame": {"x":0,"y":0,"w":16,"h":16},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+	"sourceSize": {"w":16,"h":16}
+},
+"2.png":
+{
+	"frame": {"x":16,"y":0,"w":16,"h":16},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+	"sourceSize": {"w":16,"h":16}
+},
+"3.png":
+{
+	"frame": {"x":32,"y":0,"w":16,"h":16},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+	"sourceSize": {"w":16,"h":16}
+}},
+"animations": {
+	"DoorTimer": ["1.png","2.png","3.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "DoorTimer.png",
+	"format": "RGBA8888",
+	"size": {"w":48,"h":16},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:7be2cdd6b3dc34dc68c9973166dbb9f4:99312abe17ce61bbd266e3b358a5c5ea:e92b8a802d0bcf2168d20602c083d955$"
+}
+}
