@@ -2,12 +2,23 @@ import http from 'http';
 import cors from 'cors';
 import express from 'express';
 import { Server } from 'colyseus';
+import { matchMaker } from "@colyseus/core";
 import { GameRoom } from './GameRoom';
 
 // creating express app
 const app = express();
 
-app.use(cors());
+app.use(cors({
+	origin: '*'
+}));
+
+matchMaker.controller.getCorsHeaders = (req: any) =>
+{
+	return {
+		'Access-Control-Allow-Origin': '*',
+		'Vary': '*'
+	}
+};
 
 app.use(express.static('Client'));
 app.use(express.static('node_modules/pixi.js/dist'));
