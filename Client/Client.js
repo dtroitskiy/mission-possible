@@ -210,32 +210,34 @@ Client.prototype.onStateChange = function(state)
 	}
 };
 
-Client.prototype.onDoorStateChange = function(door, changes)
+Client.prototype.onDoorIsOpenedChange = function(door, isOpenedCurrent, isOpenedPrevious)
 {
-	changes.forEach((change) =>
+	if (!door.view) return;
+
+	if (isOpenedCurrent != isOpenedPrevious)
 	{
-		if (change.field == 'isOpened' && change.value != change.previousValue)
+		let viewAnimPostfix = isOpenedCurrent ? 'open' : 'close';
+		if (door.schema.lockedForTurns > 0)
 		{
-			let viewAnimPostfix = change.value ? 'open' : 'close';
-			if (door.schema.lockedForTurns > 0)
-			{
-				viewAnimPostfix = 'jam_in';
-			}
-			door.view.state.setAnimation(0, `${door.viewAnimPrefix}_${viewAnimPostfix}`, false);
-			this.updateSpyArrowsVisibility();
-			this.playDoorSound(door);
+			viewAnimPostfix = 'jam_in';
 		}
-		if (change.field == 'lockedForTurns')
-		{
-			door.view.timer.visible = true;
-			door.view.timer.gotoAndStop(change.value - 1);
-			if (change.value <= 0)
-			{
-				door.view.state.setAnimation(0, `${door.viewAnimPrefix}_jam_out`, false);
-				door.view.timer.visible = false;
-			}
-		}
-	});
+		door.view.state.setAnimation(0, `${door.viewAnimPrefix}_${viewAnimPostfix}`, false);
+		this.updateSpyArrowsVisibility();
+		this.playDoorSound(door);
+	}
+};
+
+Client.prototype.onDoorLockedForTurnsChange = function(door, lockedForTurns)
+{
+	if (!door.view) return;
+
+	door.view.timer.visible = true;
+	door.view.timer.gotoAndStop(lockedForTurns - 1);
+	if (lockedForTurns <= 0)
+	{
+		door.view.state.setAnimation(0, `${door.viewAnimPrefix}_jam_out`, false);
+		door.view.timer.visible = false;
+	}
 };
 
 Client.prototype.onReady = function(message)
@@ -615,6 +617,7 @@ Client.prototype.buildMap = function()
 		this.map.doors.push(null);
 	}
 	
+	let processedDoorIndices = new Set();
 	state.rooms.forEach((room) =>
 	{
 		const roomWrapper = { 'roomNumber': room.roomNumber, 'schema': room };
@@ -651,7 +654,13 @@ Client.prototype.buildMap = function()
 				break;
 			}
 
-			door.onChange = this.onDoorStateChange.bind(this, doorWrapper);
+			if (!processedDoorIndices.has(door.index))
+			{			
+				door.listen('isOpened', this.onDoorIsOpenedChange.bind(this, doorWrapper));
+				door.listen('lockedForTurns', this.onDoorLockedForTurnsChange.bind(this, doorWrapper));
+				
+				processedDoorIndices.add(door.index);
+			}
 		});
 	});
 
