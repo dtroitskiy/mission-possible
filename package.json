@@ -1,10 +1,10 @@
 {
 	"name": "mission-possible",
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"description": "GGJ 2021 project \"Mission Possible\" by /0.",
 	"author": "Dividebyzer0",
 	"license": "MIT",
-	"repository": "https://gitlab.com/dividebyzer0-team/mission-possible.git",
+	"repository": "git@github.com:dtroitskiy/mission-possible.git",
 	"scripts": {
 		"start": "ts-node Server/Server.ts",
 		"dev": "nodemon --exec ts-node Server/Server.ts"
