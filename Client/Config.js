@@ -1,7 +1,7 @@
 'use strict';
 
 const Config = {
-	'SERVER_ADDRESS': 'wss://mission-possible-game.herokuapp.com',
+	'SERVER_ADDRESS': 'wss://mission-possible-8ac87829399c.herokuapp.com',
 	// 'SERVER_ADDRESS': 'ws://192.168.1.100:8000',
 	'ROOM_TILE_SIZE_IN_TILES': 6,
 	'TILE_SIZE_PIXELS': 16,
