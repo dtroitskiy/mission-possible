@@ -145,7 +145,7 @@ Client.prototype.onLoaded = function()
 
 Client.prototype.connect = async function(options)
 {
-	const serverAddress = location.host.indexOf('localhost') != -1 ? 'ws://' + location.host : Config.SERVER_ADDRESS;
+	const serverAddress = (location.host == 'localhost:8000' ? 'ws://' + location.host : Config.SERVER_ADDRESS);
 	let client = new Colyseus.Client(serverAddress);
 	this.colyseusRoom = await client.joinOrCreate('game', options);
 	this.colyseusRoom.onStateChange(this.onStateChange.bind(this));
