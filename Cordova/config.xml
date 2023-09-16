@@ -30,6 +30,8 @@
 		<edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
 			<application android:usesCleartextTraffic="true" />
 		</edit-config>
+		<preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/screen/android/splashscreen.xml" />
+		<preference name="AndroidWindowSplashScreenBackground" value="#000000" />
 	</platform>
 	<platform name="ios">
 		<allow-intent href="itms:*" />
